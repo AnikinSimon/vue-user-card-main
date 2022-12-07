@@ -3,19 +3,19 @@
       <img :src="avatar" class="user-photo"/>
       <p class="user-nickname">{{ nickname }}</p>
       <p class="user-name">
-        {{ lastname + ' ' + firstname}}
+        {{lastname + ' ' + firstname}}
       </p>
       <hr />
       <p class="user-info-item">
-        <img src="../assets/location.png" />
+        <img src="../assets/location.png"/>
         {{ adress }}
       </p>
       <p class="user-info-item">
-        <img src="../assets/mail.png" />
+        <img src="../assets/mail.png"/>
         {{ email }}
       </p>
       <p class="user-info-item">
-        <img src="../assets/phone.png" />
+        <img src="../assets/phone.png"/>
         {{ phone }}
       </p>
     </div>

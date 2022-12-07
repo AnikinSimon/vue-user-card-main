@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <UserCard :avatar="avatar" :firstname="firstname" :lastname="lastname" 
+    <UserCard :avatar="avatar" :firstname="firstName" :lastname="lastName" 
     :nickname="nickname" :adress="adress" :phone="phone" :email="email"/>
+    <button v-on:click="getUserData">Обновить</button>
   </div>
 </template>
 
@@ -13,16 +13,36 @@
     components: {
       UserCard
     },
-    data() {
-        return {
-            avatar: 'https://pixelbox.ru/wp-content/uploads/2021/05/ava-vk-animal-91.jpg',
-            firstname: "Иванов Иван",
-            lastname: "Иванович",
-            nickname: "romashka",
-            adress: "Москва, Юбилейная 50",
-            phone: "+7-495-266-57-34",
-            email: "coldrabbit48@example.com"
-        }
+    data(){
+      return {
+        avatar: '',
+        login: '',
+        firstName: '',
+        lastName: '',
+        adress: '',
+        phone: '',
+        email: ''
+      }
+    },
+    methods:{
+      getUserData(){
+        this.axios.get('https://randomuser.me/api/')
+          .then((response)=>{
+            console.clear()
+            let info = response.data.results[0]
+            console.log(info)
+            this.adress = info.location.city + "," + info.location.street.name;
+            this.avatar = info.picture.medium;
+            this.nickname = info.login.username;
+            this.email = info.email;
+            this.phone = info.phone;
+            this.firstName = info.name.first;
+            this.lastName = info.name.last;
+          })
+      }
+    },
+    mounted(){
+      this.getUserData();
     }
   }
 </script>
