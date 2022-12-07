@@ -1,13 +1,30 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <UserCard :avatar="avatar" :firstname="firstname" :lastname="lastname" 
+    :nickname="nickname" :adress="adress" :phone="phone" :email="email"/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import UserCard from "./components/UserCard.vue"
+  export default {
+    name: 'App',
+    components: {
+      UserCard
+    },
+    data() {
+        return {
+            avatar: 'https://pixelbox.ru/wp-content/uploads/2021/05/ava-vk-animal-91.jpg',
+            firstname: "Иванов Иван",
+            lastname: "Иванович",
+            nickname: "romashka",
+            adress: "Москва, Юбилейная 50",
+            phone: "+7-495-266-57-34",
+            email: "coldrabbit48@example.com"
+        }
+    }
+  }
 </script>
 
 <style>

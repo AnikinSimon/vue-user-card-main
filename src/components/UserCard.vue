@@ -1,21 +1,21 @@
 <template>
     <div class="user-card">
-      <img v-bind:src="avatar" class="user-photo" />
+      <img :src="avatar" class="user-photo"/>
       <p class="user-nickname">{{ nickname }}</p>
       <p class="user-name">
         {{ lastname + ' ' + firstname}}
       </p>
       <hr />
       <p class="user-info-item">
-        <img src="/img/location.png" />
+        <img src="../assets/location.png" />
         {{ adress }}
       </p>
       <p class="user-info-item">
-        <img src="/img/mail.png" />
+        <img src="../assets/mail.png" />
         {{ email }}
       </p>
       <p class="user-info-item">
-        <img src="/img/phone.png" />
+        <img src="../assets/phone.png" />
         {{ phone }}
       </p>
     </div>
